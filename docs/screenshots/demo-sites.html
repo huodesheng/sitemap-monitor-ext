@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap 盯同行 · 站点监控</title>
+  <link rel="stylesheet" href="../../dashboard.css" />
+  <style>body{min-height:100vh}</style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="../../icons/icon48.png" width="36" height="36" alt="" />
+      <div><strong>Sitemap 盯同行</strong><span>控制台</span></div>
+    </div>
+    <nav class="nav">
+      <button type="button" class="nav-item active">站点监控</button>
+      <button type="button" class="nav-item">新 URL</button>
+      <button type="button" class="nav-item">候选词</button>
+      <button type="button" class="nav-item">观察清单</button>
+      <button type="button" class="nav-item">设置 / 导入导出</button>
+    </nav>
+    <div class="side-foot"><p>基于哥飞 SEO 教程</p><p class="muted">Sitemap → 新页面 → 新词</p></div>
+  </aside>
+  <main class="main">
+    <section class="tab active">
+      <header class="page-hdr">
+        <div>
+          <h1>站点监控</h1>
+          <p class="desc">添加 5–20 个同行域名 · 发现 Sitemap · 选内容图 · 建立基线后只显示新增</p>
+        </div>
+        <div class="hdr-actions">
+          <button type="button" class="btn">一键加入内置同行</button>
+          <button type="button" class="btn">全部检查</button>
+        </div>
+      </header>
+      <div class="card add-card">
+        <form class="row">
+          <input type="text" placeholder="同行域名，例如 ahrefs.com 或 https://example.com" value="" />
+          <button type="button" class="btn primary">添加站点</button>
+        </form>
+        <p class="preset-hint muted">内置同行：Toolify / AIxploria / AI工具集 / OpenTools · MCP：Glama / MCP.so / LobeHub</p>
+      </div>
+      <div class="sites">
+        <div class="site-card">
+          <div>
+            <h3>toolify.ai <span class="muted" style="font-weight:500;font-size:13px">· AI 目录</span></h3>
+            <div class="site-meta">
+              <span class="pill">AI tools</span>
+              <span class="pill new">新 URL 12</span>
+              <span class="pill">基线 1840</span>
+              <span class="pill">已选 Sitemap 2</span>
+              <span class="pill">上次检查 今天 10:22</span>
+            </div>
+          </div>
+          <div class="site-actions">
+            <button type="button" class="btn sm">发现 Sitemap</button>
+            <button type="button" class="btn sm primary">检查更新</button>
+            <button type="button" class="btn sm">查看新 URL</button>
+            <button type="button" class="btn sm danger">删除</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div>
+            <h3>futurepedia.io</h3>
+            <div class="site-meta">
+              <span class="pill">AI tools</span>
+              <span class="pill new">新 URL 5</span>
+              <span class="pill">基线 920</span>
+              <span class="pill">已选 Sitemap 1</span>
+              <span class="pill">上次检查 昨天 18:01</span>
+            </div>
+          </div>
+          <div class="site-actions">
+            <button type="button" class="btn sm">发现 Sitemap</button>
+            <button type="button" class="btn sm primary">检查更新</button>
+            <button type="button" class="btn sm">查看新 URL</button>
+            <button type="button" class="btn sm danger">删除</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div>
+            <h3>mcp.so <span class="muted" style="font-weight:500;font-size:13px">· MCP</span></h3>
+            <div class="site-meta">
+              <span class="pill">MCP</span>
+              <span class="pill">新 URL 0</span>
+              <span class="pill">基线 310</span>
+              <span class="pill">已选 Sitemap 1</span>
+              <span class="pill">上次检查 今天 09:05</span>
+            </div>
+          </div>
+          <div class="site-actions">
+            <button type="button" class="btn sm">发现 Sitemap</button>
+            <button type="button" class="btn sm primary">检查更新</button>
+            <button type="button" class="btn sm" disabled>查看新 URL</button>
+            <button type="button" class="btn sm danger">删除</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

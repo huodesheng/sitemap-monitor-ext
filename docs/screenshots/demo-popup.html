@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sitemap 盯同行 · Popup</title>
+  <link rel="stylesheet" href="../../popup.css" />
+  <style>
+    html,body{margin:0;background:#0f172a;min-height:100vh;display:flex;align-items:center;justify-content:center}
+    .frame{width:360px;box-shadow:0 20px 50px rgba(0,0,0,.35);border-radius:12px;overflow:hidden;background:#fff}
+    .site-list{list-style:none;margin:0;padding:0 12px 8px}
+    .site-list li{display:flex;justify-content:space-between;padding:8px 4px;border-bottom:1px solid #f1f5f9;font-size:13px}
+    .badge{background:#ef4444;color:#fff;border-radius:999px;padding:1px 7px;font-size:11px}
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="hdr">
+      <div class="logo">
+        <img src="../../icons/icon48.png" width="28" height="28" alt="" />
+        <div>
+          <h1>Sitemap 盯同行</h1>
+          <p class="sub">用 Sitemap 盯住同行更新</p>
+        </div>
+      </div>
+    </header>
+    <section class="stats">
+      <div class="stat"><span class="n">8</span><span class="l">监控站</span></div>
+      <div class="stat"><span class="n">17</span><span class="l">新 URL</span></div>
+      <div class="stat"><span class="n">42</span><span class="l">候选词</span></div>
+    </section>
+    <section class="add">
+      <form>
+        <input type="text" placeholder="输入同行域名，如 example.com" />
+        <button type="button" class="btn primary">+</button>
+      </form>
+    </section>
+    <section class="list-wrap">
+      <ul class="site-list">
+        <li><span>toolify.ai</span><span class="badge">12</span></li>
+        <li><span>futurepedia.io</span><span class="badge">5</span></li>
+        <li><span>mcp.so</span><span class="muted">0</span></li>
+        <li><span>glama.ai</span><span class="muted">0</span></li>
+      </ul>
+    </section>
+    <footer class="ftr">
+      <button type="button" class="btn block">打开控制台</button>
+    </footer>
+  </div>
+</body>
+</html>

@@ -8,6 +8,18 @@ Inspired by the 哥飞 SEO tutorial: *[找不到新词？用 Sitemap 盯住同�
 
 **Current version:** `1.2.5` · **License:** [MIT](./LICENSE)
 
+## Screenshots
+
+Demo UI (sample data for illustration):
+
+| Sites monitor | New URLs |
+|---------------|----------|
+| ![Sites](./docs/screenshots/01-sites.png) | ![New URLs](./docs/screenshots/02-newurls.png) |
+
+| Candidates | Toolbar popup |
+|------------|---------------|
+| ![Candidates](./docs/screenshots/03-candidates.png) | ![Popup](./docs/screenshots/04-popup.png) |
+
 ## Why this exists
 
 Keyword tools often lag. Competitor sitemaps reveal new pages early. This extension automates the light workflow:

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sitemap 盯同行 · 候选词</title>
+  <link rel="stylesheet" href="../../dashboard.css" />
+  <style>
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e2e8f0;border-radius:999px;margin:6px;background:#fff;font-size:13px}
+    .chip a{color:#2563eb;text-decoration:none;font-size:12px}
+    .chips{display:flex;flex-wrap:wrap;padding-top:8px}
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="../../icons/icon48.png" width="36" height="36" alt="" />
+      <div><strong>Sitemap 盯同行</strong><span>控制台</span></div>
+    </div>
+    <nav class="nav">
+      <button type="button" class="nav-item">站点监控</button>
+      <button type="button" class="nav-item">新 URL</button>
+      <button type="button" class="nav-item active">候选词</button>
+      <button type="button" class="nav-item">观察清单</button>
+      <button type="button" class="nav-item">设置 / 导入导出</button>
+    </nav>
+    <div class="side-foot"><p>基于哥飞 SEO 教程</p><p class="muted">Sitemap → 新页面 → 新词</p></div>
+  </aside>
+  <main class="main">
+    <section class="tab active">
+      <header class="page-hdr">
+        <div>
+          <h1>候选词</h1>
+          <p class="desc">从新 URL 路径拆出的词 · 一键打开 Trends / Google 搜索</p>
+        </div>
+      </header>
+      <div class="card">
+        <div class="cand-toolbar row" style="display:flex;gap:12px;align-items:center;margin-bottom:8px">
+          <label><input type="checkbox" checked /> 全选</label>
+          <span class="muted">已选 4 条</span>
+          <button type="button" class="btn primary">批量加入观察</button>
+          <button type="button" class="btn danger">批量删除</button>
+        </div>
+        <div class="chips">
+          <div class="chip"><input type="checkbox" checked /> <strong>ai voice cloner</strong> <a href="#">Trends</a> <a href="#">搜索</a> <a href="#">观察</a></div>
+          <div class="chip"><input type="checkbox" checked /> <strong>sitemap keyword radar</strong> <a href="#">Trends</a> <a href="#">搜索</a> <a href="#">观察</a></div>
+          <div class="chip"><input type="checkbox" checked /> <strong>grok bots catalog</strong> <a href="#">Trends</a> <a href="#">搜索</a> <a href="#">观察</a></div>
+          <div class="chip"><input type="checkbox" checked /> <strong>ai seo tools</strong> <a href="#">Trends</a> <a href="#">搜索</a> <a href="#">观察</a></div>
+          <div class="chip"><input type="checkbox" /> <strong>browser use</strong> <a href="#">Trends</a> <a href="#">搜索</a> <a href="#">观察</a></div>
+          <div class="chip"><input type="checkbox" /> <strong>mcp server</strong> <a href="#">Trends</a> <a href="#">搜索</a> <a href="#">观察</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

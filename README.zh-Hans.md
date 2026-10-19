@@ -8,6 +8,18 @@ Chrome / Microsoft Edge **Manifest V3** 浏览器扩展：用同行 **Sitemap** 
 
 **当前版本：** `1.2.5` · **开源协议：** [MIT](./LICENSE)
 
+## 界面截图
+
+演示数据示意：
+
+| 站点监控 | 新 URL |
+|----------|--------|
+| ![站点监控](./docs/screenshots/01-sites.png) | ![新 URL](./docs/screenshots/02-newurls.png) |
+
+| 候选词 | 工具栏弹窗 |
+|--------|------------|
+| ![候选词](./docs/screenshots/03-candidates.png) | ![弹窗](./docs/screenshots/04-popup.png) |
+
 ## 为什么做这个
 
 关键词工具经常滞后，同行 Sitemap 往往更早露出新页面。本扩展把轻量流程自动化：
