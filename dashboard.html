@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap 盯同行 · 控制台</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="icons/icon48.png" width="36" height="36" alt="" />
+      <div>
+        <strong>Sitemap 盯同行</strong>
+        <span>控制台</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <button type="button" class="nav-item active" data-tab="sites">站点监控</button>
+      <button type="button" class="nav-item" data-tab="newurls">新 URL</button>
+      <button type="button" class="nav-item" data-tab="candidates">候选词</button>
+      <button type="button" class="nav-item" data-tab="watchlist">观察清单</button>
+      <button type="button" class="nav-item" data-tab="settings">设置 / 导入导出</button>
+    </nav>
+    <div class="side-foot">
+      <p>基于哥飞 SEO 教程</p>
+      <p class="muted">Sitemap → 新页面 → 新词</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- SITES -->
+    <section id="tab-sites" class="tab active">
+      <header class="page-hdr">
+        <div>
+          <h1>站点监控</h1>
+          <p class="desc">添加 5–20 个同行域名 · 发现 Sitemap · 选内容图 · 建立基线后只显示新增</p>
+        </div>
+        <div class="hdr-actions">
+          <button type="button" class="btn" id="btnSeedPresets">一键加入内置同行</button>
+          <button type="button" class="btn" id="btnCheckAll">全部检查</button>
+        </div>
+      </header>
+
+      <div class="card add-card">
+        <form id="dashAddForm" class="row">
+          <input type="text" id="dashDomain" placeholder="同行域名，例如 ahrefs.com 或 https://example.com" />
+          <button type="submit" class="btn primary">添加站点</button>
+        </form>
+        <p class="preset-hint muted" id="presetHint">内置同行：Toolify / AIxploria / AI工具集 / OpenTools / Dang / Clipfly / AITopTools / Futurepedia · MCP：Glama / MCP.so / LobeHub</p>
+        <p class="msg" id="dashAddMsg" hidden></p>
+      </div>
+
+      <div id="sitesContainer" class="sites"></div>
+      <div class="empty-state" id="sitesEmpty" hidden>
+        <div class="empty-icon">🗺️</div>
+        <h3>还没有监控站点</h3>
+        <p>可点上方「一键加入内置同行」，或手动输入域名；再点「发现 Sitemap」建基线。</p>
+        <button type="button" class="btn primary" id="btnSeedPresetsEmpty" style="margin-top:12px">一键加入内置同行</button>
+      </div>
+    </section>
+
+    <!-- NEW URLS -->
+    <section id="tab-newurls" class="tab">
+      <header class="page-hdr">
+        <div>
+          <h1>新 URL</h1>
+          <p class="desc">相对基线新增的页面 · 从此处提炼候选词</p>
+        </div>
+        <div class="hdr-actions">
+          <select id="newUrlSiteFilter"></select>
+          <button type="button" class="btn" id="btnClearNew">清除已读</button>
+          <button type="button" class="btn primary" id="btnExtractFromNew">提取候选词</button>
+        </div>
+      </header>
+      <div class="card">
+        <div class="table-wrap">
+          <table class="tbl" id="newUrlTable">
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>lastmod</th>
+                <th>站点</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="muted" id="newUrlHint" hidden style="margin:0 0 10px">以下为<strong>首次基线</strong>导入的 URL（方便提词）。下次「检查更新」后，这里只会留下真正新增的链接。</p>
+        <div class="empty-state sm" id="newUrlEmpty" hidden>
+          <p>暂无 URL。请先「发现 Sitemap」并保存选择建立基线。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANDIDATES -->
+    <section id="tab-candidates" class="tab">
+      <header class="page-hdr">
+        <div>
+          <h1>候选词</h1>
+          <p class="desc">从新 URL 路径拆出的词 · 一键打开 Trends / Google 搜索</p>
+        </div>
+      </header>
+      <div class="card">
+        <div class="cand-toolbar row" id="candToolbar" hidden>
+          <label class="cand-select-all"><input type="checkbox" id="candSelectAll" /> 全选</label>
+          <span class="muted" id="candSelectedCount">已选 0 条</span>
+          <button type="button" class="btn primary" id="btnCandBulkWatch">批量加入观察</button>
+          <button type="button" class="btn danger" id="btnCandBulkDelete">批量删除</button>
+          <button type="button" class="btn danger" id="btnCandClearAll">清空全部候选</button>
+        </div>
+        <div class="chips" id="candList"></div>
+        <div class="empty-state sm" id="candEmpty" hidden>
+          <p>还没有候选词。在「新 URL」里点击「提取候选词」，或完成一次检查。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WATCHLIST -->
+    <section id="tab-watchlist" class="tab">
+      <header class="page-hdr">
+        <div>
+          <h1>观察清单</h1>
+          <p class="desc">把感兴趣的词记下来，写备注，持续观察 Trends</p>
+        </div>
+      </header>
+      <div class="card">
+        <form id="watchAddForm" class="row">
+          <input type="text" id="watchTerm" placeholder="关键词" />
+          <input type="text" id="watchNote" placeholder="备注（可选）" />
+          <button type="submit" class="btn primary">加入观察</button>
+        </form>
+        <div class="table-wrap" style="margin-top:12px">
+          <table class="tbl" id="watchTable">
+            <thead>
+              <tr>
+                <th>词</th>
+                <th>备注</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="empty-state sm" id="watchEmpty" hidden>
+          <p>观察清单为空。从候选词点「观察」，或在上方手动添加。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="tab-settings" class="tab">
+      <header class="page-hdr">
+        <div>
+          <h1>设置 / 导入导出</h1>
+          <p class="desc">每日自动复查 · 数据备份</p>
+        </div>
+      </header>
+      <div class="card grid-2">
+        <div>
+          <h3>定时检查</h3>
+          <label class="check">
+            <input type="checkbox" id="alarmEnabled" />
+            启用每日自动复查（chrome.alarms）
+          </label>
+          <p class="muted" style="margin-top:8px">安装或启动后约 1 分钟首次触发，之后每 24 小时复查已配置站点。</p>
+          <button type="button" class="btn" id="btnSaveSettings" style="margin-top:12px">保存设置</button>
+          <button type="button" class="btn" id="btnRunAlarmNow" style="margin-top:12px">立即后台检查</button>
+          <button type="button" class="btn danger" id="btnPurgeCache" style="margin-top:12px">清理缓存（快照/URL列表）</button>
+          <h3 style="margin-top:20px">本地存储用量</h3>
+          <p class="muted" id="storageUsageText">加载中…</p>
+          <button type="button" class="btn" id="btnRefreshUsage" style="margin-top:8px">刷新用量</button>
+          <p class="muted" style="margin-top:8px">浏览器没有「手动调大扩展配额」的开关。本扩展已申请 unlimitedStorage，请重载扩展后生效。基线/快照/新 URL 已存 IndexedDB；若仍异常可点清理缓存，或减少已选 Sitemap。</p>
+          <p class="muted" style="margin-top:8px">若出现 kQuotaBytes 配额错误，点清理后再重新「检查更新」。</p>
+        </div>
+        <div>
+          <h3>导入 / 导出</h3>
+          <p class="muted">导出包含站点、基线、候选词、观察清单与设置的 JSON。</p>
+          <div class="row" style="margin-top:12px">
+            <button type="button" class="btn primary" id="btnExport">导出 JSON</button>
+            <label class="btn file-btn">
+              导入 JSON
+              <input type="file" id="importFile" accept="application/json,.json" hidden />
+            </label>
+          </div>
+          <label class="check" style="margin-top:10px">
+            <input type="checkbox" id="importMerge" checked />
+            合并导入（取消则覆盖全部数据）
+          </label>
+          <p class="msg" id="settingsMsg" hidden></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: discover / select sitemaps -->
+  <div class="modal" id="discoverModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <header>
+        <h2 id="discoverTitle">发现 Sitemap</h2>
+        <button type="button" class="icon-btn" data-close>&times;</button>
+      </header>
+      <div class="modal-body" id="discoverBody">
+        <p class="muted">加载中…</p>
+      </div>
+      <footer class="modal-ftr">
+        <button type="button" class="btn" data-close>取消</button>
+        <button type="button" class="btn primary" id="btnSaveSelection" disabled>保存选择并建立基线</button>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="lib/presets.js"></script>
+  <script src="lib/idb.js"></script>
+  <script src="lib/storage.js"></script>
+  <script src="lib/sitemap.js"></script>
+  <script src="lib/keywords.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

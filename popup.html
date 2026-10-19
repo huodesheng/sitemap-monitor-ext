@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap 盯同行</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="hdr">
+    <div class="logo">
+      <img src="icons/icon48.png" width="28" height="28" alt="" />
+      <div>
+        <h1>Sitemap 盯同行</h1>
+        <p class="sub">用 Sitemap 盯住同行更新</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="n" id="siteCount">0</span><span class="l">监控站</span></div>
+    <div class="stat"><span class="n" id="newCount">0</span><span class="l">新 URL</span></div>
+    <div class="stat"><span class="n" id="candCount">0</span><span class="l">候选词</span></div>
+  </section>
+
+  <section class="add">
+    <form id="addForm">
+      <input type="text" id="domainInput" placeholder="输入同行域名，如 example.com" autocomplete="off" />
+      <button type="submit" class="btn primary" title="添加">+</button>
+    </form>
+    <p class="hint" id="addMsg" hidden></p>
+  </section>
+
+  <section class="list-wrap">
+    <ul id="siteList" class="site-list"></ul>
+    <div class="empty" id="empty" hidden>
+      <p>还没有监控站点</p>
+      <p class="muted">添加 5–20 个同行域名，开始盯 Sitemap</p>
+    </div>
+  </section>
+
+  <footer class="ftr">
+    <button type="button" class="btn block" id="openDash">打开控制台</button>
+  </footer>
+
+  <script src="lib/idb.js"></script>
+  <script src="lib/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
